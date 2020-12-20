@@ -2,7 +2,7 @@ export default {
   light: {
     title: 'Светлая тема',
     backgroundColor: '#4169e1',
-    color: '#fff',
+    color: '#000',
     buttonColor: "#153592",
     backgroundContrast: "#FFBE33"
   },

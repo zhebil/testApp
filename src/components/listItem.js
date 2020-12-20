@@ -4,17 +4,19 @@ import { TouchableHighlight } from 'react-native-gesture-handler';
 import {ThemeContext} from '../context/themeContext';
 import { transformText } from '../utility';
 
-export default function ListItem({item, navigation}) {
-  const {
+ function ListItem({item, navigation}) {
+  const { id,
     alt_description,
-    urls: {regular, thumb},
+    urls: {thumb},
     user: {name},
   } = item;
   const theme = useContext(ThemeContext);
   const styles = getStyles(theme);
  
   const onPress= ()=> {
-    navigation.navigate('Details')
+    navigation.navigate('Details', {
+      id: id
+    })
   }
   return (
     <ScrollView contentContainerStyle={styles.container}>
@@ -28,9 +30,9 @@ export default function ListItem({item, navigation}) {
         />
       </TouchableHighlight>
       <View style={styles.description}>
-        <Text style={{...styles.text, ...styles.name}}>{name}</Text>
+        <Text  style={{...styles.text, ...styles.name}}>{name}</Text>
         <Text style={{...styles.text, ...styles.altText}}>
-          {transformText(alt_description)}
+          {alt_description}
         </Text>
       </View>
     </ScrollView>
@@ -60,6 +62,7 @@ const getStyles = (theme) =>
       color: theme.color,
       paddingLeft: 10,
       paddingRight: 10,
+      
     },
     name: {
       fontSize: 18,
@@ -69,3 +72,6 @@ const getStyles = (theme) =>
       fontSize: 16,
     },
   });
+
+
+  export default ListItem

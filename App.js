@@ -1,5 +1,5 @@
 import "react-native-gesture-handler";
-import React from "react";
+import React, { useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { Provider } from "react-redux";
 import UnsplashAPI from "./src/API/unsplashAPI";
@@ -10,12 +10,19 @@ import { UnsplashProvider } from "./src/context/unsplashContext";
 import { ThemeProvider } from "./src/context/themeContext";
 const unsplashAPI = new UnsplashAPI();
 const App = () => {
+  const [thisTheme, setThisTheme] = useState(theme.light);
   return (
     <Provider store={store}>
       <UnsplashProvider value={unsplashAPI}>
-        <ThemeProvider value={theme.light}>
+        <ThemeProvider value={thisTheme}>
           <NavigationContainer>
-            <AppNavigator />
+            <AppNavigator
+              themeChange={() => {
+                setThisTheme(
+                  thisTheme === theme.light ? theme.dark : theme.light
+                );
+              }}
+            />
           </NavigationContainer>
         </ThemeProvider>
       </UnsplashProvider>
