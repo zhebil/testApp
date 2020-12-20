@@ -4,7 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { Provider } from "react-redux";
 import UnsplashAPI from "./src/API/unsplashAPI";
 import store from "./store";
-import AppNavigator from "./src/navigation/AppNavigator";
+import AppNavigator from "./src/components/navigation/AppNavigator";
 import theme from "./src/theme";
 import { UnsplashProvider } from "./src/context/unsplashContext";
 import { ThemeProvider } from "./src/context/themeContext";

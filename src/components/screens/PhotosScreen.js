@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
-import withUnsplashAPI from "../components/hoc/withUnsplachAPI";
+import withUnsplashAPI from "../hoc/withUnsplachAPI";
 import { Text, View, StyleSheet, ActivityIndicator } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
-import ListItem from "../components/listItem";
+import ListItem from "../listItem";
 import { bindActionCreators, compose } from "redux";
-import { photoLoaded } from "../actions";
+import { photoLoaded } from "../../actions";
 import { connect } from "react-redux";
 function PhotosScreen({ navigation, unsplashAPI, photos, photoLoaded }) {
   const [isLoading, setLoading] = useState(true);

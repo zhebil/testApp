@@ -32,7 +32,7 @@ import { transformText } from '../utility';
       <View style={styles.description}>
         <Text  style={{...styles.text, ...styles.name}}>{name}</Text>
         <Text style={{...styles.text, ...styles.altText}}>
-          {alt_description}
+          {transformText(alt_description)}
         </Text>
       </View>
     </ScrollView>
