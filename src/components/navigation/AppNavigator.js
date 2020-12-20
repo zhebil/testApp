@@ -1,9 +1,9 @@
 import * as React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import PhotosScreen from "../../screens/PhotosScreen";
-import PhotoDetailsScreen from "../../screens/PhotoDetailsScreen";
+import PhotosScreen from "../screens/PhotosScreen";
+import PhotoDetailsScreen from "../screens/PhotoDetailsScreen";
 import { ThemeContext } from "../../context/themeContext";
-import { Button, Platform } from "react-native";
+import { Button} from "react-native";
 
 const Stack = createStackNavigator();
 function AppNavigator({themeChange}) {

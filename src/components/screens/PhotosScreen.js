@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import withUnsplashAPI from "../hoc/withUnsplachAPI";
 import { Text, View, StyleSheet, ActivityIndicator } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
@@ -32,9 +32,9 @@ function PhotosScreen({ navigation, unsplashAPI, photos, photoLoaded }) {
   }
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={styles.wrapper }>
         <FlatList
-          style={{ paddingHorizontal: 15 }}
+          style={styles.list}
           ListHeaderComponent={<Text h1 style={styles.title}>Фотографии</Text>}
           data={photos}
           keyExtractor={({ id }, index) => id}
@@ -52,10 +52,16 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  wrapper: {
+    flex: 1
+  },
   title: {
     fontSize: 24,
     marginBottom: 15,
   },
+  list: {
+    paddingHorizontal: 15
+  }
 });
 
 const mapStateToProps = (state) => {

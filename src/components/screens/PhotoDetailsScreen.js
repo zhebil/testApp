@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ScrollView, Text, View, Image } from "react-native";
+import {  View, Image } from "react-native";
 import { connect } from "react-redux";
 
 function PhotoDetailsScreen({ photos, route }) {
