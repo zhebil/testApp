@@ -1,21 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-
-export default function App() {
+import "react-native-gesture-handler";
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { Provider } from "react-redux";
+import UnsplashAPI from "./src/API/unsplashAPI";
+import store from "./store";
+import AppNavigator from "./src/navigation/AppNavigator";
+import theme from "./src/theme";
+import { UnsplashProvider } from "./src/context/unsplashContext";
+import { ThemeProvider } from "./src/context/themeContext";
+const unsplashAPI = new UnsplashAPI();
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Provider store={store}>
+      <UnsplashProvider value={unsplashAPI}>
+        <ThemeProvider value={theme.light}>
+          <NavigationContainer>
+            <AppNavigator />
+          </NavigationContainer>
+        </ThemeProvider>
+      </UnsplashProvider>
+    </Provider>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
